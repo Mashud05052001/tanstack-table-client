@@ -1,0 +1,23 @@
+.customUl > li {
+  margin-top: 10px !important;
+  cursor: pointer;
+  padding: 0 0.4rem;
+}
+.table-pagination ul {
+  margin-top: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+.table-pagination ul > li {
+  margin: 0 0.2rem;
+  border: 2px solid rgba(128, 128, 128, 0.246);
+  border-radius: 5px;
+}
+.table-pagination ul > li > a {
+  padding: 0 0.4rem;
+}
+.table-pagination ul > .selected {
+  background: rgba(128, 128, 128, 0.246);
+}
