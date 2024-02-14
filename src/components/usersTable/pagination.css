@@ -21,3 +21,6 @@
 .table-pagination ul > .selected {
   background: rgba(128, 128, 128, 0.246);
 }
+.react-tabs__tab--selected {
+  background: rgba(128, 128, 128, 0.436);
+}
