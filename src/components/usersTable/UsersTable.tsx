@@ -1,28 +1,26 @@
-import _ from "lodash";
 import {
   ColumnDef,
   PaginationState,
   SortingState,
   flexRender,
   getCoreRowModel,
-  getFilteredRowModel,
   getPaginationRowModel,
   // getPaginationRowModel,
   // getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
+import { useEffect, useState } from "react";
+import { MdFirstPage, MdLastPage } from "react-icons/md";
 import {
   TbSortAscendingLetters,
   TbSortAscendingNumbers,
   TbSortDescendingLetters,
   TbSortDescendingNumbers,
 } from "react-icons/tb";
-import Container from "../Container";
-import { KeyboardEvent, useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
 import ReactPaginate from "react-paginate";
+import { useSearchParams } from "react-router-dom";
+import Container from "../Container";
 import "./pagination.css";
-import { MdFirstPage, MdLastPage } from "react-icons/md";
 // import { GrFormPrevious, GrNext } from "react-icons/gr";
 
 type PropTypes<TData, TValue> = {

@@ -1,12 +1,11 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { ColumnDef } from "@tanstack/react-table";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLoaderData, useLocation } from "react-router-dom";
-import TableWithTanStackQuery from "./TableWithTanstackQuery";
-import UsersTable from "./UsersTable";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { axiosInstance } from "../../elements/axios";
+import TableWithTanStackQuery from "./TableWithTanstackQuery";
+import UsersTable from "./UsersTable";
 
 const columns: ColumnDef<UserDataType>[] = [
   {
@@ -19,22 +18,24 @@ const columns: ColumnDef<UserDataType>[] = [
 ];
 
 const Users = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const location = useLocation();
   const data: TotalUsersDataType = useLoaderData() as TotalUsersDataType;
-
   const fetchData = async (url: string) => {
     const data = (await axiosInstance.get(url)).data as TotalUsersDataType;
+    setIsLoading(false);
     return data;
   };
   // Fetch data once when component mounts
   useEffect(() => {
+    setIsLoading(true);
     const fetchDataOnce = async () => {
       const url = `/users/${location.search}`;
       await fetchData(url);
     };
     fetchDataOnce();
   }, [location.search]);
-
+  console.log(isLoading);
   const { data: tableData, isFetching } = useQuery({
     queryKey: ["users", location.search],
     queryFn: () => fetchData(`/users/${location.search}`),
