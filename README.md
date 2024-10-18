@@ -1,4 +1,5 @@
-# React + TypeScript + Vite
+# Tanstack Table Practise
 
-Backend Url => https://tanstack-table-server.vercel.app/
-Frontend Url => https://tanstack-table-mahi.netlify.app/
+**[Client](https://tanstack-table-mahi.netlify.app/)**
+**[Server](https://tanstack-table-server.vercel.app/)**
+
